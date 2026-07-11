@@ -51,3 +51,11 @@ SELECT state, ROUND(( Electric * 100.0) / total_state_vehicles, 2) as per_ev
 FROM vehicle_data3
 order by per_ev asc
 limit 5;
+
+
+-- Compare EV adoption in California vs. other large states
+SELECT state, ROUND(( Electric * 100.0) / total_state_vehicles, 2) as per_ev
+FROM vehicle_data3
+where total_state_vehicles > 9000000
+order by per_ev desc
+limit 5;
